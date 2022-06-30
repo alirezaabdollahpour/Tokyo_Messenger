@@ -63,7 +63,25 @@ def create_chat(token, user2name):
     # return response
     return response
 
-# test create_chat function
+# define get_chat function with this curl command :
+# curl -X GET http://localhost:8000/get_chats/ -H 'Content-Type: application/json' -d '{"token":"WJW1QTVZLGBKVMB2M8QQA2H1VCN9SAMLTLQQ23RJWV54I8XSMLZGGYTUJI7LF9X8L4ZSBR62GZHVA5MUO5946"}'
+def get_chats(token):
+    # define url
+    url = "http://localhost:8000/get_chats/"
+    # define headers
+    headers = {'Content-Type': 'application/json'}
+    # define data
+    data = {'token': token}
+    # send request
+    response = requests.get(url, headers=headers, data=json.dumps(data))
+    # return response
+    return response
+
+
+response = get_chats("WJW1QTVZLGBKVMB2M8QQA2H1VCN9SAMLTLQQ23RJWV54I8XSMLZGGYTUJI7LF9X8L4ZSBR62GZHVA5MUO5946")
+print(response.text)
+
+
 
 
 
