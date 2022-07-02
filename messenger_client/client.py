@@ -62,3 +62,16 @@ def get_messages(token, chat_id):
     response = requests.get(url, headers=headers, data=json.dumps(data))
     # return response
     return response
+
+
+def send_message(token, chat_id, text):
+    # define url
+    url = "http://localhost:8000/send_message/"
+    # define headers
+    headers = {'Content-Type': 'application/json'}
+    # define data
+    data = {'token': token, 'chat_id': chat_id, 'text': text}
+    # send request
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    # return response
+    return response
