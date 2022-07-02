@@ -221,3 +221,15 @@ stylesheet2 = """
 QPushButton:pressed {
   background-color: rgb(24, 163, 255);
 }"""
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    app.setStyleSheet(stylesheet) 
+    app.setStyle("Fusion")
+    client1 = client()
+    w2 = chat_window(client1)
+    w1 = messenger_sign_window(client1,w2)
+    w1.resize(640, 640)
+    w1.show()
+    sys.exit(app.exec())
