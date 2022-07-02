@@ -17,8 +17,9 @@ title="coffee" width="600" align="middle" />
 
 ## Server
 ### First of all you should using Docker to have your Django server
-
-
+''' python
+docker-compose up --build
+'''
 
 # Contribute
 ### Mohammadreza babaei
