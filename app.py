@@ -36,4 +36,13 @@ class messenger_sign_window(QMainWindow, form):
         self.sign_in_status_box.hide()
         self.token = ""
 
+    def sign_up(self):
+        username = self.sign_up_username.text()
+        password = self.sign_up_password.text()
+        
+        #check username and password
+        if(username =="" or password == ""):
+            self.sign_up_status_box.show()
+            self.sign_up_status_box.setText("please enter username or password")
+            return
         
