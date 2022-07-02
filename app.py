@@ -100,3 +100,15 @@ class messenger_sign_window(QMainWindow, form):
         return response
 
 #chat page
+
+class chat_window(QMainWindow, form2):
+    def __init__(self, client1) -> None:
+        super(chat_window, self).__init__()
+        self.setupUi(self)
+        self.Thread_list = []
+        
+        #connecting buttons
+        self.search_box.returnPressed.connect(self.search)
+        self.send_button.setDisabled(True)
+        self.send_button.clicked.connect(self.send_message)
+        
