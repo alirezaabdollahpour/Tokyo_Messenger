@@ -168,3 +168,9 @@ class chat_window(QMainWindow, form2):
         self.Thread.update_trigger.connect(self.update)
         self.Thread.start()
         
+    #update function that is cslled via thread for refreshing chat every 0.1 second
+    def update(self):
+        self.sender_chat.clear()
+        self.reciever_chat.clear()
+        chat_id = client1.chats[client1.reciever]
+        messages = (client1.get_messages(chat_id)).json()["chats"]
