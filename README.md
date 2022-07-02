@@ -20,6 +20,14 @@ title="coffee" width="600" align="middle" />
 ```docker
 docker-compose up --build
 ```
+## After that you should create your super user,it's like an admin!
+```docker
+docker exec -it messenger-server_web_1 sh 
+```
+## Final
+``` python
+python3 app.py
+```
 
 # Contribute
 ### Mohammadreza babaei
