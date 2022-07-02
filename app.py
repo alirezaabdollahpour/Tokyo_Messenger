@@ -24,6 +24,7 @@ from time import sleep
 form = uic.loadUiType(os.path.join(os.getcwd() , "interface1.ui"))[0]
 form2 = uic.loadUiType(os.path.join(os.getcwd() , "interface_chat.ui"))[0]
 
+#sign(up/in) window
 class messenger_sign_window(QMainWindow, form):
     def __init__(self, client1, w2) -> None:
         super(messenger_sign_window, self).__init__()
@@ -36,6 +37,8 @@ class messenger_sign_window(QMainWindow, form):
         self.sign_in_status_box.hide()
         self.token = ""
 
+        
+    
     def sign_up(self):
         username = self.sign_up_username.text()
         password = self.sign_up_password.text()
@@ -186,9 +189,12 @@ class chat_window(QMainWindow, form2):
                 text_indent = QListWidgetItem("")
                 self.reciever_chat.addItem(text_indent)
                 self.sender_chat.addItem(text_message)
-
+                
+                
+        
+        
+                
 #thread class for refreshing message page
-
 class Chat_Thread(QtCore.QThread):
     update_trigger = QtCore.pyqtSignal()
     
@@ -199,6 +205,9 @@ class Chat_Thread(QtCore.QThread):
             print(self.__str__)
             sleep(0.1)
             self.update_trigger.emit()
+            
+    
+    
 
 
 #background sheet
@@ -221,8 +230,7 @@ stylesheet2 = """
 QPushButton:pressed {
   background-color: rgb(24, 163, 255);
 }"""
-
-
+          
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setStyleSheet(stylesheet) 
@@ -233,3 +241,7 @@ if __name__ == "__main__":
     w1.resize(640, 640)
     w1.show()
     sys.exit(app.exec())
+    
+
+    
+    

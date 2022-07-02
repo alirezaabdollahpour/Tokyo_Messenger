@@ -51,6 +51,8 @@ def get_chats(token):
     # return response
     return response
 
+# define get_chat_messages function with this curl command :
+# curl -X GET http://localhost:8000/get_messages/ -H 'Content-Type: application/json' -d '{"token":"WJW1QTVZLGBKVMB2M8QQA2H1VCN9SAMLTLQQ23RJWV54I8XSMLZGGYTUJI7LF9X8L4ZSBR62GZHVA5MUO5946", "chat_id": 1}'
 def get_messages(token, chat_id):
     # define url
     url = "http://localhost:8000/get_messages/"
@@ -63,7 +65,8 @@ def get_messages(token, chat_id):
     # return response
     return response
 
-
+# define send_message function with this curl command :
+# curl -X POST http://localhost:8000/send_message/ -H 'Content-Type: application/json' -d '{"token":"WJW1QTVZLGBKVMB2M8QQA2H1VCN9SAMLTLQQ23RJWV54I8XSMLZGGYTUJI7LF9X8L4ZSBR62GZHVA5MUO5946", "chat_id": 1, "text": "salam salar"}'
 def send_message(token, chat_id, text):
     # define url
     url = "http://localhost:8000/send_message/"
@@ -76,6 +79,7 @@ def send_message(token, chat_id, text):
     # return response
     return response
 
+# write above functios in client class
 class client:
     # define constructor
     def __init__(self, username = "", token = ""):
