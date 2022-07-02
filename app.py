@@ -98,3 +98,5 @@ class messenger_sign_window(QMainWindow, form):
             self.sign_in_status_box.setText("please check your username or password")
             
         return response
+
+#chat page
