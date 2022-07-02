@@ -46,3 +46,22 @@ class messenger_sign_window(QMainWindow, form):
             self.sign_up_status_box.setText("please enter username or password")
             return
         
+        # requesting to server
+        url = "http://localhost:8000/signup/"
+        # define headers
+        headers = {'Content-Type': 'application/json'}
+        # define data
+        data = {'username': username, 'password': password}
+        # send request
+        response = requests.post(url, headers=headers, data=json.dumps(data))
+        # return response
+        self.sign_up_status_box.show()
+        
+        if(("\"status\": \"ok\"") in response.text):
+            self.sign_up_status_box.setText("you signed up successfully")
+            self.sign_up_username.setText("")
+            self.sign_up_password.setText("")
+        elif((response.text).find("\"status\": \"Error\"")):
+            self.sign_up_status_box.setText(response.text[12 : len(response.text) - 2])
+            
+        return response
