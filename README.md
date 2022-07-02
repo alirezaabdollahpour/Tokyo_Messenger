@@ -3,6 +3,6 @@
 <br>
 <p align="center">
 <img src="babei/resourses/login.png" alt="minor"
-title="coffee" width="300" align="middle" />
+title="coffee" width="600" align="middle" />
 </p>
 <br>
