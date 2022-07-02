@@ -122,3 +122,25 @@ class chat_window(QMainWindow, form2):
                 self.search_box.setText("user not found")
                 return
             
+            #adding contact
+            else:
+                new_contact = QPushButton(text)
+                new_contact.setGeometry(0,0,231,61)
+                new_contact.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+                new_contact.setMinimumSize(231,61)
+                new_contact.setStyleSheet(stylesheet2)
+                self.contact_layout.addWidget(new_contact)
+                new_contact.clicked.connect(lambda: self.lets_chat(new_contact.text()))
+                client1.chats[text] = response.json()["chat_id"]
+                return
+        #add contact with pre defined chat
+        else:
+            self.search_box.setText("chat already exists")
+            client1.chats[text] = response.json()["chat_id"]
+            new_contact = QPushButton(text)
+            new_contact.setGeometry(0,0,231,61)
+            new_contact.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+            new_contact.setMinimumSize(231,61)
+            new_contact.setStyleSheet(stylesheet2)
+            self.contact_layout.addWidget(new_contact)
+            new_contact.clicked.connect(lambda: self.lets_chat(new_contact.text()))
