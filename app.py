@@ -144,3 +144,13 @@ class chat_window(QMainWindow, form2):
             new_contact.setStyleSheet(stylesheet2)
             self.contact_layout.addWidget(new_contact)
             new_contact.clicked.connect(lambda: self.lets_chat(new_contact.text()))
+        
+    def send_message(self):
+        # get message text
+        text = self.message_box.text()
+        # get chat id
+        chat_id = client1.chats[client1.reciever]
+        # send message
+        response = client1.send_message(chat_id, text)
+        # return response
+        self.message_box.setText("")
