@@ -174,3 +174,16 @@ class chat_window(QMainWindow, form2):
         self.reciever_chat.clear()
         chat_id = client1.chats[client1.reciever]
         messages = (client1.get_messages(chat_id)).json()["chats"]
+        for pm in messages:
+            #check if message is for signed in user
+            if(pm[1] == client1.username):
+                text_message = QListWidgetItem(pm[0] + ":" + client1.username)
+                text_indent = QListWidgetItem("")
+                self.sender_chat.addItem(text_indent)
+                self.reciever_chat.addItem(text_message)
+            elif(pm[1] == client1.reciever):
+                text_message = QListWidgetItem(client1.reciever + ":" + pm[0])
+                text_indent = QListWidgetItem("")
+                self.reciever_chat.addItem(text_indent)
+                self.sender_chat.addItem(text_message)
+                
