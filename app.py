@@ -76,3 +76,25 @@ class messenger_sign_window(QMainWindow, form):
             self.sign_in_status_box.setText("enter username or password")
             return
         
+        #requesting to server
+        url = "http://localhost:8000/signin/"
+        # define headers
+        headers = {'Content-Type': 'application/json'}
+        # define data
+        data = {'username': username, 'password': password}
+        # send request
+        response = requests.get(url, headers=headers, data=json.dumps(data))
+        # return response
+        
+        #openning chat page
+        if(("\"status\": \"ok\"") in response.text):
+            client1.username = username
+            client1.token = response.json()["token"]
+            w2.show()
+            
+            
+        elif((response.text).find("\"status\": \"Error\"")):
+            self.sign_in_status_box.show()
+            self.sign_in_status_box.setText("please check your username or password")
+            
+        return response
