@@ -161,3 +161,10 @@ class chat_window(QMainWindow, form2):
         if len(self.Thread_list) != 0:
             for th in self.Thread_list:
                 th.terminate()
+        client1.reciever = text
+        self.send_button.setDisabled(False)
+        self.Thread = Chat_Thread(self)
+        self.Thread_list.append(self.Thread)
+        self.Thread.update_trigger.connect(self.update)
+        self.Thread.start()
+        
