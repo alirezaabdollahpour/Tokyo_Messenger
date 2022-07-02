@@ -154,3 +154,10 @@ class chat_window(QMainWindow, form2):
         response = client1.send_message(chat_id, text)
         # return response
         self.message_box.setText("")
+    
+    #showing chats uing refreshing via threads    
+    def lets_chat(self, text):
+        #check if any thread is running if yes shut it down
+        if len(self.Thread_list) != 0:
+            for th in self.Thread_list:
+                th.terminate()
