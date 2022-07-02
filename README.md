@@ -14,8 +14,9 @@ title="coffee" width="600" align="middle" />
 <br>
 
 # How to install
-''' Docker
-'''
+
+## Server
+### First of all you should using Docker to have your Django server
 
 
 
