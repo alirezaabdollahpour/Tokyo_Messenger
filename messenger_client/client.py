@@ -50,3 +50,15 @@ def get_chats(token):
     response = requests.get(url, headers=headers, data=json.dumps(data))
     # return response
     return response
+
+def get_messages(token, chat_id):
+    # define url
+    url = "http://localhost:8000/get_messages/"
+    # define headers
+    headers = {'Content-Type': 'application/json'}
+    # define data
+    data = {'token': token, 'chat_id': chat_id}
+    # send request
+    response = requests.get(url, headers=headers, data=json.dumps(data))
+    # return response
+    return response
