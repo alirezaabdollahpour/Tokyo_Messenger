@@ -186,4 +186,5 @@ class chat_window(QMainWindow, form2):
                 text_indent = QListWidgetItem("")
                 self.reciever_chat.addItem(text_indent)
                 self.sender_chat.addItem(text_message)
-                
+
+#thread class for refreshing message page
