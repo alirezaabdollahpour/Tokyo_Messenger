@@ -112,3 +112,13 @@ class chat_window(QMainWindow, form2):
         self.send_button.setDisabled(True)
         self.send_button.clicked.connect(self.send_message)
         
+    #search for usernames and check if a chat exists or not
+    def search(self):
+        
+        text = self.search_box.text()
+        response = client1.create_chat(text)
+        if(not(response.json()["status"] == "Chat_Error")):
+            if(response.json()["status"] == "Error"):
+                self.search_box.setText("user not found")
+                return
+            
