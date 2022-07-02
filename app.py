@@ -199,3 +199,25 @@ class Chat_Thread(QtCore.QThread):
             print(self.__str__)
             sleep(0.1)
             self.update_trigger.emit()
+
+
+#background sheet
+stylesheet = """
+    messenger_sign_window {
+        background-image: url("resourses/background2.jpg"); 
+        background-repeat: no-repeat; 
+        background-position: center;
+    }
+"""
+stylesheet2 = """
+    QPushButton {
+    border: 2px solid #0055ff;
+    border-radius: 6px;
+    font: italic 12pt "Sans Serif";
+  background-color: rgb(170, 0, 255);
+    min-width: 80px;
+}
+
+QPushButton:pressed {
+  background-color: rgb(24, 163, 255);
+}"""
