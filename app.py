@@ -188,3 +188,14 @@ class chat_window(QMainWindow, form2):
                 self.sender_chat.addItem(text_message)
 
 #thread class for refreshing message page
+
+class Chat_Thread(QtCore.QThread):
+    update_trigger = QtCore.pyqtSignal()
+    
+    def __init__(self, window) -> None:
+        QtCore.QThread.__init__(self, parent=window)
+    def run(self):
+        while(True):
+            print(self.__str__)
+            sleep(0.1)
+            self.update_trigger.emit()
