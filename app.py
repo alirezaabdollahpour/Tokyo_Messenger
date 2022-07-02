@@ -23,3 +23,17 @@ from time import sleep
 #setting qt forms 
 form = uic.loadUiType(os.path.join(os.getcwd() , "interface1.ui"))[0]
 form2 = uic.loadUiType(os.path.join(os.getcwd() , "interface_chat.ui"))[0]
+
+class messenger_sign_window(QMainWindow, form):
+    def __init__(self, client1, w2) -> None:
+        super(messenger_sign_window, self).__init__()
+        self.setupUi(self)
+        
+        # connecting buttons
+        self.sign_up_button.clicked.connect(self.sign_up)
+        self.sign_in_button.clicked.connect(self.sign_in)
+        self.sign_up_status_box.hide()
+        self.sign_in_status_box.hide()
+        self.token = ""
+
+        
