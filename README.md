@@ -13,6 +13,11 @@ title="coffee" width="600" align="middle" />
 </p>
 <br>
 
+# How to install
+'''Docker
+'''
+
+
 
 # Contribute
 ### Mohammadreza babaei
