@@ -19,3 +19,7 @@ import os
 import sys
 from messenger_client.client import client
 from time import sleep
+
+#setting qt forms 
+form = uic.loadUiType(os.path.join(os.getcwd() , "interface1.ui"))[0]
+form2 = uic.loadUiType(os.path.join(os.getcwd() , "interface_chat.ui"))[0]
