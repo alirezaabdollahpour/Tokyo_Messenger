@@ -1,0 +1,13 @@
+libraries:
+hhtp
+numpy
+os
+sys
+threading
+atplotlib.backends.backend_qt5agg
+matplotlib.figure
+PyQt5
+urllib
+requests
+json
+time
